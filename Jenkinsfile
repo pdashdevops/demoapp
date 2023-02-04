@@ -20,9 +20,9 @@ pipeline{
      
        stage('Build and Push'){
         steps{
-            sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 441760469737.dkr.ecr.us-east-1.amazonaws.com"
-            sh "cd demoapp && docker build -t 441760469737.dkr.ecr.us-east-1.amazonaws.com/demoapp:v${BUILD_NUMBER} ."
-            sh "docker push 441760469737.dkr.ecr.us-east-1.amazonaws.com/demoapp:v${BUILD_NUMBER}"
+            sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 713973836604.dkr.ecr.us-east-1.amazonaws.com"
+            sh "cd demoapp && docker build -t 713973836604.dkr.ecr.us-east-1.amazonaws.com/demoapp:v${BUILD_NUMBER} ."
+            sh "docker push 713973836604.dkr.ecr.us-east-1.amazonaws.com/demoapp:v${BUILD_NUMBER}"
         }
        }
        
