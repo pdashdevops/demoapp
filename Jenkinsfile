@@ -1,6 +1,6 @@
 pipeline{
     //agent any
-    agent {label 'default'}
+    agent {label 'worker'}
     options{
         buildDiscarder(logRotator(daysToKeepStr: '15'))
         disableConcurrentBuilds()
@@ -25,6 +25,11 @@ pipeline{
             sh "docker push 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
         }
        }
+        stage('Deploy'){
+         steps{
+             sh "docker run -itd -p 90:3000 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
+            }
+        }
        
     }
     post{
