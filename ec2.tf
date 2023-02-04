@@ -6,7 +6,7 @@ module "ec2_instance_bastion" {
 
   ami                    = "ami-00874d747dde814fa"
   instance_type          = "t2.micro"
-  key_name               = "kepair.pem"
+  key_name               = "kepair"
   monitoring             = true
   vpc_security_group_ids = [module.ssh_service_sg_public.security_group_id]
   subnet_id              = module.vpc.public_subnets[1]
@@ -26,7 +26,7 @@ module "ec2_instance_jenkis" {
 
   ami                    = "ami-00874d747dde814fa"
   instance_type          = "t2.micro"
-  key_name               = "kepair.pem"
+  key_name               = "kepair"
   monitoring             = true
   vpc_security_group_ids = [module.ssh_service_sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[0]
@@ -46,7 +46,7 @@ module "ec2_instance_app" {
 
   ami                    = "ami-00874d747dde814fa"
   instance_type          = "t2.micro"
-  key_name               = "kepair.pem"
+  key_name               = "kepair"
   monitoring             = true
   vpc_security_group_ids = [module.ssh_service_sg_private.security_group_id]
   subnet_id              = module.vpc.private_subnets[1]
