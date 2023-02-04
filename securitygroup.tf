@@ -21,7 +21,7 @@ module "ssh_service_sg_public" {
   source = "terraform-aws-modules/security-group/aws"
 
   name        = "user-service"
-  description = "Security group for Bastion host SG - Allow self ip to ssh to ‘bastion’ instance and allow all egress."
+  description = "Security group for Bastion host SG - Allow self ip to ssh to bastion instance and allow all egress."
   vpc_id      = module.vpc.vpc_id
 
   ingress_with_cidr_blocks = [
