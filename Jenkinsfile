@@ -27,6 +27,7 @@ pipeline{
        }
         stage('Deploy'){
          steps{
+             sh "docker pull 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
              sh "docker run -itd -p 90:3000 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
             }
         }
