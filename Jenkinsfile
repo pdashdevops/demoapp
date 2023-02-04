@@ -30,8 +30,7 @@ pipeline{
              sh '''
              docker pull 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}
              if [ "$( docker container inspect -f '{{.State.Running}}' assignment )" == "true" ]
-             then docker rm assignment 
-             fi
+             {docker rm assignment} 
              docker run -itd -p :3000 --name assignment 713973836604.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER} 
              '''
             }
