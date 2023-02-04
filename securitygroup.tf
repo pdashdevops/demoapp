@@ -1,7 +1,7 @@
 module "ssh_service_sg_private" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "user-service"
+  name        = "private_sg"
   description = "Security group for Private Instances SG - Allow all incoming traffic from within VPC and all egress"
   vpc_id      = module.vpc.vpc_id
 
@@ -20,7 +20,7 @@ module "ssh_service_sg_private" {
 module "ssh_service_sg_public" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "user-service"
+  name        = "bastion_sg"
   description = "Security group for Bastion host SG - Allow self ip to ssh to bastion instance and allow all egress."
   vpc_id      = module.vpc.vpc_id
 
@@ -39,7 +39,7 @@ module "ssh_service_sg_public" {
 module "ssh_service_sg_public_web" {
   source = "terraform-aws-modules/security-group/aws"
 
-  name        = "user-service"
+  name        = "public_sg"
   description = "Security group for Public Web SG - Allow incoming to port 80 from self IP and all egress."
   vpc_id      = module.vpc.vpc_id
 
